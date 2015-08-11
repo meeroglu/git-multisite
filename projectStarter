@@ -18,14 +18,14 @@ then
 		git remote add netas ssh://git@zistvy90:7999/~cokcelik/melike.git
 		echo "Netas and Genband sites were added for ssh."
 		echo projectStarter >> .gitignore
-		git rm --cached projectStarter -r
+		git rm --cached projectStarter 
 	elif [[ "$protocol" -eq  "http" ]]
 	then
 		git remote add netas http://$username@zistvy90:7990/scm/~cokcelik/melike.git
 		git remote add genband http://$username@172.16.27.69:7990/scm/gmt/melike.git
 		echo "Netas and Genband sites were added for http"
 		echo projectStarter >> .gitignore
-		git rm --cached projectStarter -r
+		git rm --cached projectStarter 
 
 	else
 		echo "We can not recognize your protocol preferences. "
