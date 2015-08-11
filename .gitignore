@@ -10,7 +10,5 @@ examples/email-inlined
 *.sublime-*
 this is comment
 ./projectStarter
-./projectStarter
-./projectStarter
-./projectStarter
+
 ./projectStarter
