@@ -80,9 +80,9 @@ then
 elif [ "$1" =  "add" ]
 then
 	git add .
-	git update-index --assume-unchanged $pwd/projectStarter
+#	git update-index --assume-unchanged $pwd/projectStarter
 
-#	git update-index --assume-unchanged /home/meroglu/yeni/melike/projectStarter
+	git update-index --assume-unchanged /home/meroglu/yeni/melike/projectStarter
 
 elif [ "$1" = "commit" ]
 then
