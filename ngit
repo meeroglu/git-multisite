@@ -90,6 +90,8 @@ then
 	then
 	echo "Please use ngit commit -m "commit message" "
 	else
+	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+        git update-index --assume-unchanged $MY_PATH/projectStarter
 	result=$@			
 			for i in $(seq 1  $#)
                 	do	
