@@ -104,14 +104,15 @@ then
                         	then
 			
 				var=${!i}
-                                var=$(echo ${!i} | sed "s/\s/\_\s/g")
-                                result=$(echo $@ | sed -e "s/${!i}/$commit_code\_$var/g" )
+                                var=$(echo ${!i} | sed "s/\s/\_/g")
+                                result=$(echo $@ | sed -e "s/${!i}/$var\_#$commit_code/g" )
 
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
-	echo $var
+	echo "var: $var"
+	echo "i: ${!i}"
 	/usr/bin/git $result	
 	fi	
 	else
