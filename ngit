@@ -105,6 +105,7 @@ then
 			
 				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
+				var=$commit_code_$var
                                 result=$(echo $@ | sed -e "s/${!i}/$var\_/g" )
 
                         	else
@@ -117,9 +118,9 @@ then
 			second=$( echo $result | cut -d ' ' -f2 )
 			third=$( echo $result | cut -d ' ' -f1 )
 	
-echo"first: $first"
-echo"second: $second"
-echo"third: $third"
+echo "first: $first"
+echo "second: $second"
+echo "third: $third"
 
 
 
