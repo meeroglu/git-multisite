@@ -115,7 +115,7 @@ then
 
 			
 	echo "result: $result"
-	echo"var: $var"		
+	echo "var: $var"		
 	echo "i: ${!i}"
 	/usr/bin/git $result	
 	fi	
