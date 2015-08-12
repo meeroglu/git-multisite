@@ -111,7 +111,7 @@ then
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
-	$result=commit_code+result
+	$result=$commit_code$result
 	echo $result
 	/usr/bin/git $result	
 	fi	
