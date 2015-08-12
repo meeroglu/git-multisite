@@ -112,7 +112,7 @@ then
 				fi
 		        done
 	$result=$commit_code$result
-	echo $result
+	echo "result: $result"
 	/usr/bin/git $result	
 	fi	
 	else
