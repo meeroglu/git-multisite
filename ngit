@@ -41,7 +41,7 @@ then
 		echo "----- Commit has been pushed to Netas site. -----"
 	fi
 
-         git push guenband $2
+         git push genband $2
         if [[ $? -ne 0 ]]; then
                 echo "==> Genband is not available <==";
 		changes=$( git diff HEAD~~ --name-only )          
@@ -81,9 +81,8 @@ then
 elif [ "$1" =  "add" ]
 then
 	git add .
-#	git update-index --assume-unchanged $pwd/projectStarter
-
-	git update-index --assume-unchanged /home/meroglu/yeni/melike/projectStarter
+	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+	git update-index --assume-unchanged $MY_PATH/projectStarter
 
 elif [ "$1" = "commit" ]
 then
