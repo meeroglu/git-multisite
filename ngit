@@ -106,7 +106,8 @@ then
 				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
                                 result=$(echo $@ | sed "s/${!i}/$commit_code\_$var/g" )
-	
+
+echo hello	
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
