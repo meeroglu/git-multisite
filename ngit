@@ -56,9 +56,11 @@ then
 			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
 		else
 			echo "Last commit has been reverted from Netas site."
+			MY_PATH="`( cd \"$MY_PATH\" && pwd )`"  # absolutized and normalized
+			echo "$MY_PATH"
 			for var in $changes
 	                do
-        		        cp /tmp/chfiles/$var /home/meroglu/deneme/melike
+        		        cp /tmp/chfiles/$var $MY_PATH/$var
         	        done
 			rm -rf /tmp/chfiles
 		fi
