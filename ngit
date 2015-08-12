@@ -90,7 +90,9 @@ then
 	then
 	echo "Please use ngit commit -m "commit message" "
 	else
-	result=$@			
+	result=$@
+			commit message=$3
+			commit_code=$( echo $3 | openssl enc -aes-128-cbc -a -salt -pass)			
 			for i in $(seq 1  $#)
                 	do	
                         word_count=$( echo ${!i} | tr " " "\n" | wc -l)
