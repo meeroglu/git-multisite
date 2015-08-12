@@ -1,0 +1,122 @@
+#!/bin/bash
+
+############################################################################
+#####   File            : ngit                                          ####
+#####   Description     : The intent is to enhance git capabilities     ####
+#####   Author          : Melike Eroglu <meroglu@netas.com.tr>          ####
+#####   Co-Author       : Can Okcelik   <cokcelik@netas.com.tr>         ####
+#####   Creation Date   : 31/07/2015                                    ####
+############################################################################
+
+#checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime\=//g" )
+#if [[ "$checkStarter" = "0"  ]]
+#then
+#	./projectStarter
+#	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
+#fi
+
+export PAGER="cat"
+
+if [ "$1" = "pushall" ];
+then
+#	git remote add asd ssh://git@zistvy90:7999/~cokcelik/melike.git 
+#	git remote add bsd ssh://git@zistvy90:7999/~cokcelik/melike.git
+        git config --global push.default matching
+	netas_commit_id=$( git log | head -1 | sed s/'commit '// ) 
+	git push netas  $2
+	
+	if [[ $? -ne 0 ]]; then
+		echo "==> Netas is not available <==";
+	
+		if [[ $? -ne 0 ]]
+        	then
+        		echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
+        	else
+                	echo "Last commit has been reverted from Netas site."
+        	fi
+
+		exit;	
+	else
+
+		echo "----- Commit has been pushed to Netas site. -----"
+	fi
+
+         git push genband $2
+        if [[ $? -ne 0 ]]; then
+                echo "==> Genband is not available <==";
+		changes=$( git diff HEAD~~ --name-only )          
+	        mkdir /tmp/chfiles
+		for var in $changes
+                do		
+	                cp $var /tmp/chfiles/
+                done
+		git revert --no-edit $netas_commit_id		
+		if [[ $? -ne 0 ]]
+		then
+			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
+		else
+			echo "Last commit has been reverted from Netas site."
+			MY_PATH="`( cd \"$MY_PATH\" && pwd )`" 
+			for var in $changes
+	                do
+        		        cp /tmp/chfiles/$var $MY_PATH/$var
+        	        done
+			rm -rf /tmp/chfiles
+		fi
+        else
+              echo "----- Commit has been pushed to Genband site. -----"
+        fi	
+
+elif [ "$1" = "projectStarter" ];
+then
+	./projectStarter
+        sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter	
+
+elif [ "$1" = "auto" ]
+then
+	# full automatic mode
+	./ngit add .
+	./ngit commit -m "auto test commiti"
+	./ngit pushall
+elif [ "$1" =  "add" ]
+then
+	git add .
+	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+#	git update-index --assume-unchanged $MY_PATH/projectStarter
+
+elif [ "$1" = "commit" ]
+then
+	if [ -z "$2" ]
+	then
+	echo "Please use ngit commit -m "commit message" "
+	else
+	result=$@			
+			for i in $(seq 1  $#)
+                	do	
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        	if [ $word_count -gt 0 ]
+                        	then
+			
+				var=${!i}
+                                var=$(echo ${!i} | sed "s/\s/\_/g")
+                                result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
+                        	else
+				echo "plese use  ngit commit -m "commit message " " 	
+				fi
+		        done
+	/usr/bin/git $result	
+	fi	
+	else
+	result=$@
+                for i in $(seq 1 $#)
+                do
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        if [ $word_count -gt 1 ]
+                        then
+		                var=${!i}
+				var=$(echo ${!i} | sed "s/\s/\_/g")
+                		result=$(echo $@ | sed "s/${!i}/\"$var\"/g" )
+                        fi
+                done
+        /usr/bin/git $result
+fi
