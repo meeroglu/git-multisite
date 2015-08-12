@@ -1,4 +1,6 @@
 bu bir denemedir
+deneme
+deneme
 bu bir denemedir
 bu bir denemedir
 bu bir denemedir
@@ -128,5 +130,39 @@ selam
 selam
 selam
 selam
+<<<<<<< HEAD
 hallo 8/11/2015
 9:40
+=======
+hallo today is 8/11/2015
+11:57 am
+12:05 am
+12:10 am
+12:15 am
+12:43 am
+1:55 pm
+1:58 pm
+2:07 pm
+2:16 pm
+2:23 pm
+2:33 pm
+2:37 pm
+2:54 pm
+2:57 pm
+3:10 pm
+3:11 pm
+3:19
+3:22
+3:25
+3:27
+3:33
+Successful!
+last
+as
+asd
+asd
+asd
+sdsf
+dsfdsf
+8/12/2015
+>>>>>>> 5650d43aad234fcf1265e9864e6b85e04df99edb
