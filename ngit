@@ -125,7 +125,7 @@ then
 	echo "result: $result"
 
 	#result=$( echo $result | sed "s/$/#$commit_code/g" )
-	echo $result$commit_code
+	echo $result"#"$commit_code
 
 		
 	
