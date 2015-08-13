@@ -108,7 +108,7 @@ then
 	
         	                        var=$(echo ${!i} | sed "s/\s/\_/g")
 
-					result=$(echo $@ | sed "s/${!i}/$var\s/g" )
+					result=$(echo $@ | sed "s/${!i}/$var/g" )
 
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
@@ -120,8 +120,8 @@ then
 	commit_message=$var 
         commit_code=$( echo $var | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)	
 	echo "result: $result"
-	result=$( echo $result | sed "s/$/#$commit_code/g" )
-
+	#result=$( echo $result | sed "s/$/#$commit_code/g" )
+	
 	echo "ccode:$commit_code"
 	echo "var :$var"
 	echo "result : $result"	
