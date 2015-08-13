@@ -106,10 +106,14 @@ then
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
-	
 	commit_code=$( echo $var | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)
         #result=$( echo $result | sed "s/$/#$commit_code/g" )
         result=$(echo $result$commit_code)
+
+	commit_code=$( echo $var | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)
+        result=$(echo $result$commit_code)
+
+
 
 	/usr/bin/git $result	
 	fi	
