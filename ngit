@@ -107,13 +107,13 @@ then
 echo "var: $var"
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
 echo "var: $var"
-				result=$(echo $@ | sed "s/${!i}/$var\_$commit_id/g" )
+				result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
 echo "var: $var"
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
-echo asd
+echo a
 			
 	
 			
