@@ -97,10 +97,10 @@ then
 			echo "commit message: $commit_message"
 			echo "commit code: $commit_code"
 				
-			for i in $(seq 0  $#)
+			for i in $(seq 1  $#)
                 	do	
-                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
-                        	if [ $word_count -gt 1 ]
+                        word_count=$( echo -n ${!i} | tr " " "\n" | wc -l)
+                        	if [ $word_count -gt 0 ]
                         	then
 			
 				var=${!i}
