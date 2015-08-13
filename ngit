@@ -112,8 +112,11 @@ then
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
+		
+				
 		        done
-	
+	commit_message=$var
+	echo "var :$var"
 	
 			
 	
