@@ -113,7 +113,7 @@ echo "var: $var"
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
-echo a
+echo as
 			
 	
 			
