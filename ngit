@@ -98,7 +98,8 @@ then
 				fi
 		        done
 	commit_code=$( echo $var | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)
-        result=$(echo $result"#"$commit_code)
+        result=$(echo $result$commit_code)
+
 
 	/usr/bin/git $result	
 	fi	
