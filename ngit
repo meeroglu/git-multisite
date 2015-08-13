@@ -56,9 +56,10 @@ then
 			echo "We can not revert the last commit has been sent Netas site recently. Now, two sites are not sync."
 		else
 			echo "Last commit has been reverted from Netas site."
+			MY_PATH="`( cd \"$MY_PATH\" && pwd )`" 
 			for var in $changes
 	                do
-        		        cp /tmp/chfiles/$var /home/meroglu/deneme/melike
+        		        cp /tmp/chfiles/$var $MY_PATH/$var
         	        done
 			rm -rf /tmp/chfiles
 		fi
@@ -77,12 +78,20 @@ then
 	./ngit add .
 	./ngit commit -m "auto test commiti"
 	./ngit pushall
+elif [ "$1" =  "add" ]
+then
+	git add .
+	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+	git update-index --assume-unchanged $MY_PATH/projectStarter
+
 elif [ "$1" = "commit" ]
 then
 	if [ -z "$2" ]
 	then
 	echo "Please use ngit commit -m "commit message" "
 	else
+	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+        git update-index --assume-unchanged $MY_PATH/projectStarter
 	result=$@			
 			for i in $(seq 1  $#)
                 	do	

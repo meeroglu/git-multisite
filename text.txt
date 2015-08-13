@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 bu odsfir denemedir
+=======
+bu bir denemedir
+deneme
+deneme
+>>>>>>> 9fecbd16595fef558c0b9cda6962ce6d2950e046
 bu bir denemedir
 bu bir denemedir
 bu bir denemedir
@@ -128,6 +134,13 @@ selam
 selam
 selam
 selam
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+hallo 8/11/2015
+9:40
+=======
+>>>>>>> 9fecbd16595fef558c0b9cda6962ce6d2950e046
 hallo today is 8/11/2015
 11:57 am
 12:05 am
@@ -160,3 +173,7 @@ sdsf
 dsfdsf
 8/12/2015
 test_melike.sh
+hallo
+10:07
+haha
+
