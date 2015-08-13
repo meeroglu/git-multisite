@@ -107,9 +107,7 @@ then
 echo "var: $var"
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
 echo "var: $var"
-				var=${commit_code}${var}
-echo "var: $var"
-   	                        result=$(echo $@ | sed "s/${!i}/$var\_/g" )
+				result=$(echo $@ | sed "s/${!i}/$var\_$commit_id/g" )
 echo "var: $var"
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
