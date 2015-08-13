@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 selam 3:38
 melike eroglu
 bu bir denemedir
@@ -32,6 +33,12 @@ selam
 selam
 selam
 bu degisiklik cok onemlidir
+selam
+<<<<<<< HEAD
+selam
+=======
+Yesim
+>>>>>>> origin/master
 selam
 selam
 selam
@@ -119,10 +126,17 @@ selam
 9:14
 9:23
 9:26
-hah
+
 selam
 selam
 selam
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+hallo 8/11/2015
+9:40
+=======
+>>>>>>> 9fecbd16595fef558c0b9cda6962ce6d2950e046
 hallo today is 8/11/2015
 11:57 am
 12:05 am
