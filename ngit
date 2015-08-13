@@ -92,7 +92,7 @@ then
 			
 				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
-                                result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
+                                result=$(echo $@ | sed "s/${!i}/$var\#/g" )
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
