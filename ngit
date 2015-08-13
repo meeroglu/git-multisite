@@ -101,11 +101,16 @@ then
 			
 				var=${!i}
                                 var=$(echo ${!i} | sed "s/\s/\_/g")
-                                result=$(echo $@ | sed "s/${!i}/$var\_#ngit_operation/g" )
+                                result=$(echo $@ | sed "s/${!i}/$var\#/g" )
                         	else
 				echo "plese use  ngit commit -m "commit message " " 	
 				fi
 		        done
+	
+	commit_code=$( echo $var | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)
+        #result=$( echo $result | sed "s/$/#$commit_code/g" )
+        result=$(echo $result$commit_code)
+
 	/usr/bin/git $result	
 	fi	
 	else
