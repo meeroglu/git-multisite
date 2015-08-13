@@ -99,7 +99,7 @@ then
 				
 			for i in $(seq 1  $#)
                 	do	
-                        word_count=$( echo -n ${!i} | tr " " "\n" | wc -l)
+                        word_count=$( echo  ${!i} | tr " " "\n" | wc -l)
                         	if [ $word_count -gt 0 ]
                         	then
 			
