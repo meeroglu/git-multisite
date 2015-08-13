@@ -115,7 +115,8 @@ then
 		
 				
 		        done
-	commit_message=$var
+	commit_message=$(echo $var | sed "s/\_/\s/g" )
+	
 	echo "var :$var"
 	
 			
