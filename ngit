@@ -91,10 +91,8 @@ then
 			echo "Please use ngit commit -m "commit message" "
 	else
 	result=$@
-			commit_message=$3
+	
 			commit_code=$( echo $3 | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)
-		
-			echo "commit message: $commit_message"
 			echo "commit code: $commit_code"
 				
 			for i in $(seq 1  $#)
