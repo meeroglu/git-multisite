@@ -8,12 +8,21 @@
 #####   Creation Date   : 31/07/2015                                    ####
 ############################################################################
 
+<<<<<<< HEAD
 #checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime\=//g" )
 #if [[ "$checkStarter" = "0"  ]]
 #then
 #	./projectStarter
 #	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
 #fi
+=======
+checkStarter=$( cat projectStarter | grep firstTime | head -1 | sed "s/firstTime\=//g" )
+if [[ "$checkStarter" = "0"  ]]
+then
+	./projectStarter
+	sed -i "s/firstTime\=0/firstTime\=1/g" projectStarter
+fi
+>>>>>>> c15e28c3439ca0b3c56a37a25c51afbd08408630
 
 export PAGER="cat"
 
@@ -82,12 +91,17 @@ elif [ "$1" =  "add" ]
 then
 	git add .
 	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+
 #	git update-index --assume-unchanged $MY_PATH/projectStarter
+
+	git update-index --assume-unchanged $MY_PATH/projectStarter
+
 
 elif [ "$1" = "commit" ]
 then
 	if [ -z "$2" ]
 	then
+
 			echo "Please use ngit commit -m "commit message" "
 	else
 	result=$@
@@ -121,6 +135,34 @@ then
 	result=$(echo $result"#"$commit_code)
 			
 	
+
+	echo "Please use ngit commit -m "commit message" "
+	else
+	MY_PATH="`( cd \"$MY_PATH\" && pwd )`"
+        git update-index --assume-unchanged $MY_PATH/projectStarter
+	result=$@			
+			for i in $(seq 1  $#)
+                	do	
+                        word_count=$( echo ${!i} | tr " " "\n" | wc -l)
+                        	if [ $word_count -gt 0 ]
+                        	then
+			
+				var=${!i}
+                                var=$(echo ${!i} | sed "s/\s/\_/g")
+                                result=$(echo $@ | sed "s/${!i}/$var\#/g" )
+                        	else
+				echo "plese use  ngit commit -m "commit message " " 	
+				fi
+		        done
+	commit_code=$( echo $var | openssl enc -aes-128-cbc -a -salt -pass pass:wtf)
+        echo "commit code: $commit_code"
+	#result=$( echo $result | sed "s/$/#$commit_code/g" )
+        result=$(echo $result$commit_code)
+	echo "result: $result"
+	
+
+
+
 	/usr/bin/git $result	
 	fi	
 	else
@@ -137,4 +179,7 @@ then
                 done
         /usr/bin/git $result
 fi
+
+
+
 

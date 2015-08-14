@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo selam >> text.txt
+ngit add .
+ngit commit -m "test commiti"
+ngit pushall
+
